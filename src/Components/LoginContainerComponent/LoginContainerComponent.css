@@ -1,0 +1,49 @@
+.grid-login-container {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+}
+.grid-login-left {
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(../../assets/lobbyfix-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.grid-left-text {
+  width: 63%;
+}
+.grid-left-text > span {
+  font-size: 40px;
+  color: white;
+  font-weight: 500;
+}
+.grid-left-text > p {
+  width: 65%;
+  color: #fff;
+  display: block;
+  margin-top: 30px;
+  line-height: 175%;
+}
+.grid-login-right {
+  width: 50%;
+  background-color: #fafbfc;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-login-content {
+  width: 60%;
+}
+.grid-right-text > span {
+  font-size: 27px;
+  color: #3f80be;
+  font-weight: 500;
+}
