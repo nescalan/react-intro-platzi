@@ -42,8 +42,43 @@
 .grid-login-content {
   width: 60%;
 }
+.grid-login-content > form {
+  margin-top: 15px;
+}
 .grid-right-text > span {
-  font-size: 27px;
+  font-size: 30px;
   color: #3f80be;
   font-weight: 500;
+}
+.input-layout {
+  height: 15px;
+  margin-top: 7px;
+  margin-bottom: 15px;
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #d4d4d6;
+  background-color: #fff;
+}
+.input-layout > input {
+  width: 90%;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+}
+.btn {
+  border-color: transparent;
+  background-color: #00abfd;
+  color: #fff;
+}
+.btn-submit {
+  width: 270px;
+  height: 50px;
+  border-radius: 2px;
+  padding: 0 20px;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 300;
+  touch-action: manipulation;
 }

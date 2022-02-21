@@ -4,7 +4,7 @@ const userLoged = false;
 
 const AppComponent = () => {
   return (
-    <>{userLoged ? <h1>You are in...</h1> : <LoginContainerComponent />}</>
+    <>{!userLoged ? <LoginContainerComponent /> : <h1>You are in...</h1>}</>
   );
 };
 
