@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import "./LoginContainerComponent.css";
 
-const LoginContainerComponent = () => {
-  const [loginUser, setLoginUser] = useState({});
-
+const LoginContainerComponent = ({ setLoginUser }) => {
   const {
     register,
     handleSubmit,
@@ -14,15 +11,10 @@ const LoginContainerComponent = () => {
 
   const onSubmit = (data, e) => {
     // watch input value by passing the name of it
-    console.log(data);
     setLoginUser(data);
-
     // Clean input spaces
     e.target.reset();
   };
-
-  // console.log("This is the state");
-  // console.log(loginUser);
 
   return (
     <>
@@ -64,27 +56,36 @@ const LoginContainerComponent = () => {
               </div>
               {/* errors will return when field validation fails  */}
               {errors.email && (
-                <span role="alert"> This field is required</span>
+                <span className="error-alert">
+                  Ingresa un formato de correo correcto.
+                </span>
               )}
-
               {/* include validation with required or other standard HTML validation rules */}
-              <label htmlFor="password">Contraseña:</label>
-              <div className="input-layout">
-                <img
-                  src="https://panel.lobbyfix.com/images/2dcf2c201c9dc7056e7a987c6fa3973b.svg"
-                  alt=""
-                />
-                <input
-                  {...register("contraseña", {
-                    required: true,
-                    minLength: 30,
-                  })}
-                />
+
+              <div>
+                <label htmlFor="password">Contraseña:</label>
+                <div className="input-layout">
+                  <img
+                    src="https://panel.lobbyfix.com/images/2dcf2c201c9dc7056e7a987c6fa3973b.svg"
+                    alt=""
+                  />
+                  <input
+                    {...register("contraseña", {
+                      required: true,
+                      minLength: 8,
+                    })}
+                  />
+                </div>
+                {/* errors will return when field validation fails  */}
+                {errors.contraseña && (
+                  <span className="error-alert">
+                    {" "}
+                    This field is required, min 8 digits
+                  </span>
+                )}
               </div>
-              {/* errors will return when field validation fails  */}
-              {errors.contraseña && <span> This field is required</span>}
               <button type="submit" className="btn btn-submit">
-                Submito
+                Iniciar Seción
               </button>
               {/* <input type="submit" className="btn btn-submit" /> */}
             </form>
