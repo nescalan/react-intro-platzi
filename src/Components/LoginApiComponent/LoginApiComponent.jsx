@@ -6,11 +6,17 @@ const UsersApi = `https://api.airtable.com/v0/appED4cmwegdc8xsp/Table%201?api_ke
 const LoginApiComponent = ({ ApiUsers, setApiUsers }) => {
   // const [ApiUsers, setApiUsers] = useState("");
 
+  // useEffect(() => {
+  //   fetch(UsersApi)
+  //     .then((res) => res.json())
+  //     .then((ApiUsers) => setApiUsers(ApiUsers.records));
+  // }, [setApiUsers]);
+
   useEffect(() => {
     fetch(UsersApi)
       .then((res) => res.json())
-      .then((ApiUsers) => setApiUsers(ApiUsers));
-  }, []);
+      .then((ApiUsers) => setApiUsers(ApiUsers.records));
+  }, [setApiUsers]);
 
   // console.log(ApiUsers);
 

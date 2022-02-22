@@ -70,14 +70,14 @@ const LoginContainerComponent = ({ setLoginUser }) => {
                     alt=""
                   />
                   <input
-                    {...register("contraseña", {
+                    {...register("password", {
                       required: true,
                       minLength: 8,
                     })}
                   />
                 </div>
                 {/* errors will return when field validation fails  */}
-                {errors.contraseña && (
+                {errors.password && (
                   <span className="error-alert">
                     {" "}
                     This field is required, min 8 digits
