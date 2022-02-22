@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Api, Login, LoginApi } from "..";
+import React, { useState } from "react";
+import { Login, LoginApi } from "..";
 
 const AppComponent = () => {
   // user Locar user state
@@ -19,24 +19,24 @@ const AppComponent = () => {
   console.log(ApiUsers);
 
   // Searchig for registered user
-  let fields = [];
-  if (fields.length >= 1) {
-    fields = ApiUsers;
-    console.log("Api de usuarios copiada a Searched Api Users ...");
-  } else {
-    console.log("Impresion");
-    console.log(
-      (fields = ApiUsers.map((element) => {
-        return element.fields;
-      }))
-    );
-    let searchedUser = fields.filter(
-      (field) => field.username === loginUser.name
-    );
+  // let fields = [];
+  // if (fields.length >= 1) {
+  //   fields = ApiUsers;
+  //   console.log("Api de usuarios copiada a Searched Api Users ...");
+  // } else {
+  //   console.log("Impresion");
+  //   console.log(
+  //     (fields = ApiUsers.map((element) => {
+  //       return element.fields;
+  //     }))
+  //   );
+  //   let searchedUser = fields.filter(
+  //     (field) => field.username === loginUser.name
+  //   );
 
-    console.log("resultado");
-    console.log(searchedUser);
-  }
+  //   console.log("resultado");
+  //   console.log(searchedUser);
+  // }
 
   if (!user) {
     return (
