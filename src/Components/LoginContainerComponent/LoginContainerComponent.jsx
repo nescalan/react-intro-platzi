@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 import "./LoginContainerComponent.css";
 
-const LoginContainerComponent = ({ setLoginUser }) => {
+const LoginContainerComponent = ({ errorMessage, setLoginUser }) => {
   const {
     register,
     handleSubmit,
@@ -89,6 +89,11 @@ const LoginContainerComponent = ({ setLoginUser }) => {
               </button>
               {/* <input type="submit" className="btn btn-submit" /> */}
             </form>
+            {errorMessage && (
+              <div className="error-alert">
+                El correo electrónico o la contraseña no son válidos
+              </div>
+            )}
           </div>
         </div>
       </div>

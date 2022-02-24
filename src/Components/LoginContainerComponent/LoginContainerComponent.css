@@ -83,6 +83,11 @@
   touch-action: manipulation;
 }
 .error-alert {
+  margin-top: 30px;
+  padding: 5px;
   font-size: 12px;
+  border: 1px solid red;
+  border-radius: 5px;
   color: red;
+  background: #ffe3e3;
 }

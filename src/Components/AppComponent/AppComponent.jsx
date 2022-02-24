@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { LogedComponent, Login, LoginApi } from "..";
 
 const AppComponent = () => {
-  let user = false;
-
   // user from Login Form
   const [loginUser, setLoginUser] = useState({});
 
   // List of users from API server
   const [apiData, setApiData] = useState([]);
+
+  // Error: Controls Error Messages
+  let errorMessage = false;
+  let user = false;
 
   const fields = apiData.map((el) => {
     return el.fields;
@@ -19,7 +21,7 @@ const AppComponent = () => {
   console.log(fields);
 
   // watch input value from loginUser and ApiUsers CONSOLE.LOG()
-  console.log("********** Contenido LOGIN USERS **********");
+  console.log("***** Contenido LOGIN USERS *****");
   const ApiUsersLength = Object.keys(loginUser).length;
   console.log(ApiUsersLength);
   console.log(loginUser.email);
@@ -27,10 +29,6 @@ const AppComponent = () => {
 
   // Find use login info
   const userData = fields.find((user) => user.username === loginUser.email);
-
-  // console.log("===== Contenido TEMPUSER =====");
-  // console.log(tempUser);
-  // console.log(user.username);
 
   console.log("+++++ User Found: +++++");
   console.log(userData);
@@ -41,23 +39,32 @@ const AppComponent = () => {
   if (userData) {
     if (userData.password !== loginUser.password) {
       // Invalid password
-      alert("!!! ACCESSO DENEGADO !!!!");
+      console.log("!!! USUARIO NO ENCONTRADO - ACCESSO DENEGADO !!!!");
+      errorMessage = true;
+      user = false;
     } else {
       // Valid Password
       console.log("ACCESO CORRECTO ");
       user = true;
-      // setUser(true);
     }
-  } else {
+  } else if (!loginUser.email) {
     // Username not found
-    alert("!!! ACCESSO DENEGADO !!!!");
+    console.log("!!! USUARIO NO ENCONTRADO - ACCESSO DENEGADO !!!!");
+    console.log(userData);
+    errorMessage = false;
+    user = false;
+  } else {
+    // Invalid User
+    console.log("!!! USUARIO NO ENCONTRADO - ACCESSO DENEGADO !!!!");
+    errorMessage = true;
+    user = false;
   }
 
   // MAIN PROGRAMM
   if (!user) {
     return (
       <>
-        <Login loginUser={loginUser} setLoginUser={setLoginUser} />
+        <Login errorMessage={errorMessage} setLoginUser={setLoginUser} />
         <LoginApi apiData={apiData} setApiData={setApiData} />
       </>
     );
